@@ -1,0 +1,28 @@
+{
+  "name": "project-management",
+  "version": "1.0.0",
+  "description": "Fortech challenge",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adinamatei/project-management.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adinamatei/project-management/issues"
+  },
+  "homepage": "https://github.com/adinamatei/project-management#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongodb": "^3.1.13",
+    "nodemon": "^1.18.10",
+    "path": "^0.12.7"
+  }
+}
