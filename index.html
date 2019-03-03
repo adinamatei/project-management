@@ -12,31 +12,111 @@
 </head>
 <body>
     <h1>Project Management</h1>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8">
-                <form id="addIssueForm">
-                    <div class="form-group">
-                        <label for="userInput">Issue</label>
-                        <input type="text" class="form-control" id="userInput" placeholder="Issue">
-                        <button type="submit" class="btn btn-primary">Add Issue</button>
+
+    <!-- display sprints-->
+    <div class="card">
+        <div class="card-header">
+            <!-- Add Sprint Button -->
+            <button id="addSprint" type="button" class="btn btn-primary" data-toggle="modal" data-target="#sprintModal">
+                Add Sprint
+            </button>
+
+            <!-- Sprint Modal -->
+            <div class="modal fade" id="sprintModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Add Sprint</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="addSprintForm">
+                                <div class="form-group">
+                                <label for="userInputSprint">Add New Sprint</label>
+                                <input type="text" class="form-control" id="userInputSprint" placeholder="Sprint Name">
+
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="sprintSaveBtn" type="button" class="btn btn-primary">Save</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
-                </form>
+                </div>
             </div>
-            <div class="col-lg-2"></div>
-        </div>
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8">
-                <ul class="list-group" id="display">
-
-                </ul>
-            </div>
-            <div class="col-lg-2"></div>
         </div>
 
+
+
+        <!-- Display issue -->
+        <div class="modal fade" id="issueModal" tabindex="-1" role="dialog" aria-labelledby="issueModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="issueModalLabel">Add ISSUE</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form id="addIssueForm">
+                        <div class="modal-body">
+
+
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="inputGroupSelect01">Type</label>
+                                    </div>
+                                    <select class="custom-select" id="inputGroupSelect01">
+                                        <option value="1">Task</option>
+                                        <option value="2">Feature</option>
+                                        <option value="3">Bug</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">Name</span>
+                                    </div>
+                                    <input id="nameInput" type="text" class="form-control" placeholder="Issue Name" aria-label="Username" aria-describedby="basic-addon1">
+                                </div>
+
+
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">With textarea</span>
+                                    </div>
+                                    <textarea id="description" class="form-control" aria-label="With textarea"></textarea>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Add Issue</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="card-body" id="sprintDisplay">
+            <!-- Sprints go here -->
+        </div>
     </div>
+
+
+
+
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

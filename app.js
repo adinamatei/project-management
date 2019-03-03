@@ -4,6 +4,7 @@ const path = require("path");
 const db = require("./db");
 
 const collection = "issues";
+const sprintCollection = "sprints";
 
 const app = express();
 app.use(bodyParser.json());
@@ -13,6 +14,40 @@ app.use("/static", express.static(path.join(__dirname, 'static')));
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+
+app.get("/sprint", (req, res) => {
+    db.getDB().collection(sprintCollection).find({}).toArray((err, result) => {
+        if(err) {
+            console.log(err);
+        } else {
+            res.json(result);
+        }
+    })
+});
+
+app.post("/sprint", (req, res) => {
+    const userInput = req.body;
+    db.getDB().collection(sprintCollection).insertOne(userInput, (err, result) => {
+        if(err) {
+            console.log(err);
+        } else {
+            res.json({result: result, document: result.ops[0]});
+        }
+    })
+});
+
+app.delete("/sprint/:id", (req, res) => {
+    const idSprint = req.params.id;
+
+    db.getDB().collection(sprintCollection).findOneAndDelete({_id: db.getPrimaryKey(idSprint)}, (err, result) => {
+        if(err) {
+            console.log(err);
+        } else {
+            res.json(result);
+        }
+    })
 });
 
 app.get("/issue", (req, res)=>{
