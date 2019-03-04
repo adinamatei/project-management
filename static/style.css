@@ -1,0 +1,29 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+#projectTitle {
+    margin: 20px;
+    text-align: center;
+}
+
+.sprint {
+    margin-bottom: 10px;
+}
+.card-header {
+    background: azure;
+}
+
+.styleIssue {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    width: 30%;
+
+}
+.styleIssue:first-child {
+    width: 10%;
+}
+
+.list-group-item {
+    padding: 0;
+}

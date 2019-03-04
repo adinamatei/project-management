@@ -7,11 +7,12 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/style.css" >
 
     <title>Project Management</title>
 </head>
 <body>
-    <h1>Project Management</h1>
+    <h1 id="projectTitle">Project Management</h1>
 
     <!-- display sprints-->
     <div class="card">
@@ -71,9 +72,9 @@
                                         <label class="input-group-text" for="inputGroupSelect01">Type</label>
                                     </div>
                                     <select class="custom-select" id="inputGroupSelect01">
-                                        <option value="1">Task</option>
-                                        <option value="2">Feature</option>
-                                        <option value="3">Bug</option>
+                                        <option value="Task">Task</option>
+                                        <option value="Feature">Feature</option>
+                                        <option value="Bug">Bug</option>
                                     </select>
                                 </div>
 
@@ -87,9 +88,9 @@
 
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text">With textarea</span>
+                                        <span class="input-group-text">Description</span>
                                     </div>
-                                    <textarea id="description" class="form-control" aria-label="With textarea"></textarea>
+                                    <textarea id="description" class="form-control" aria-label="Description"></textarea>
                                 </div>
 
 
@@ -97,7 +98,7 @@
 
                         </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Add Issue</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                     </form>

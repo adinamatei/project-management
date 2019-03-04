@@ -68,10 +68,22 @@ $(document).ready(() => {
         },
         displayIssue: function (issue, containerId) {
             const display = document.getElementById(containerId);
-            const newTask = document.createElement("li");
-            newTask.innerText = issue.name;
-            newTask.className = "list-group-item";
-            display.appendChild(newTask);
+            const newIssue = document.createElement("div");
+            const type = document.createElement("div");
+            const name = document.createElement("div");
+            const status = document.createElement("div");
+            const description = document.createElement("div");
+            [type, name, status, description].forEach(each => each.className = "p-2 flex-fill styleIssue");
+            type.innerText = "Type \n" + issue.type;
+            name.innerText = "Name \n" +  issue.name;
+            status.innerText = "Status \n" + issue.status;
+            description.innerText = "Description \n" + issue.description;
+            newIssue.appendChild(type);
+            newIssue.appendChild(name);
+            newIssue.appendChild(status);
+            newIssue.appendChild(description);
+            newIssue.className = "list-group-item d-flex bd-highlight";
+            display.appendChild(newIssue);
         },
         displaySprintIssues: function (sprintId) {
             data.issues.filter(issue => {
@@ -80,7 +92,7 @@ $(document).ready(() => {
         }
     };
 
-    const constroller = {
+    const controller = {
         addSprintEventListener: function () {
             document.getElementById("sprintSaveBtn").addEventListener('click', (e) => {
                 e.preventDefault();
@@ -108,7 +120,7 @@ $(document).ready(() => {
                 const name = document.getElementById("nameInput").value;
                 const type = document.getElementById("inputGroupSelect01").value;
                 const description = document.getElementById("description").value;
-                const status = "new";
+                const status = "New";
                 const userInput = {
                     name: name,
                     type: type,
@@ -134,17 +146,8 @@ $(document).ready(() => {
 
     };
 
-
     data.getIssues();
     data.getSprints();
-    constroller.addSprintEventListener();
-    constroller.addIssueEventListener()
-
-
-
-
-
-
-
-
+    controller.addSprintEventListener();
+    controller.addIssueEventListener()
 });
