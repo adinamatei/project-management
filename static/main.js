@@ -52,9 +52,8 @@ $(document).ready(() => {
             addIssueBtn.innerText = "Add Issue";
             addIssueBtn.setAttribute("data-toggle", "modal");
             addIssueBtn.setAttribute("data-target", "#issueModal");
-            addIssueBtn.id = `btn_${sprint._id}`;
-            addIssueBtn.addEventListener('click', (event) => {
-                data.setCurrentSprintID(event.target.id.split("_")[1]);
+            addIssueBtn.addEventListener('click', () => {
+                data.setCurrentSprintID(sprint._id);
             });
             const sprintIssues = document.createElement('div');
             sprintIssues.id = `sprint_${sprint._id}`;
@@ -95,7 +94,6 @@ $(document).ready(() => {
     const controller = {
         addSprintEventListener: function () {
             document.getElementById("sprintSaveBtn").addEventListener('click', (e) => {
-                e.preventDefault();
                 const userInputSprint = document.getElementById("userInputSprint").value;
 
                 fetch("/sprint", {
@@ -114,7 +112,6 @@ $(document).ready(() => {
             });
         },
         addIssueEventListener: function() {
-
             document.getElementById("addIssueForm").addEventListener("submit", (e) => {
                 e.preventDefault();
                 const name = document.getElementById("nameInput").value;
